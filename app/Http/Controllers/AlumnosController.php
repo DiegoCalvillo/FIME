@@ -8,6 +8,7 @@ use FIME\Http\Requests\AlumnosEditRequest;
 use FIME\alumnos as alumnos;
 use FIME\Carrera as Carrera;
 use FIME\Estatus as Estatus;
+use Auth;
 
 class AlumnosController extends Controller
 {
@@ -36,6 +37,7 @@ class AlumnosController extends Controller
     	$alumnos->apellidos_alumno = $request->apellidos_alumno;
     	$alumnos->carreras_id = $request->carrera;
         $alumnos->estatus_id = 1;
+        $alumnos->user_id = Auth::User()->id;
     	$alumnos->save();
     	return redirect('/alumnos')->with('message', 'store');
     }
@@ -66,5 +68,11 @@ class AlumnosController extends Controller
     {
         $alumnos = Alumnos::where('matricula_alumno', 'like', '%'.$request-> matricula_alumno.'%')->paginate(1);
         return \View::make('alumnos.alumnos', compact('alumnos'));
+    }
+
+    public function show($id)
+    {
+        $alumnos = alumnos::find($id);
+        return view('alumnos.alumnos_perfil')->with('alumnos', $alumnos);
     }
 }

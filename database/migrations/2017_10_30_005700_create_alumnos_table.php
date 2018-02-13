@@ -19,6 +19,7 @@ class CreateAlumnosTable extends Migration
             $table->string('apellidos_alumno';)
             $table->string('matricula_alumno');
             $table->integer('carreras_id');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }

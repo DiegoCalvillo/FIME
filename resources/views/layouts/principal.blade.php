@@ -449,6 +449,7 @@
     @yield('content_alumnos')
     @yield('content_alumnos_registro')
     @yield('content_alumnos_editar')
+    @yield('content_alumnos_perfil')
 
     <!--Materias por carrera-->
     @yield('content_materias_carrera')

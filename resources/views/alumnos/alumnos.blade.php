@@ -41,22 +41,20 @@
 						<table width="100%" class="table table-striped table-bordered table-hover">
 							<thead>
 								<tr>
-									<th>Apellidos</th>
 									<th>Nombre(s)</th>
-									<th>Matrícula</th>
-									<th>Carrera</th>
-									<th>Estatus</th>
+									<th>Apellidos</th>
 									<th>Opciones</th>
 								</tr>
 							</thead>
 							<tbody>
 								@foreach($alumnos as $alumno)
 									<tr>
+										<td>
+											<a href="{{ route('alumnos/show', ['id' => $alumno->id]) }}">
+												{{ $alumno -> nombre_alumno }}
+											</a>
+										</td>
 										<td>{{ $alumno -> apellidos_alumno }}</td>
-										<td>{{ $alumno -> nombre_alumno }}</td>
-										<td>{{ $alumno -> matricula_alumno }}</td>
-										<td>{{ $alumno -> carrera -> abr_carrera }}</td>
-										<td>{{ $alumno -> estatus -> nombre_estatus }}</td>
 										<td>
 											 <a class="btn btn-primary btn-xs glyphicon glyphicon-pencil" href="{{ route('alumnos/edit', ['id' => $alumno->id] )}}"> Editar</a>
 										</td>

@@ -34,6 +34,7 @@ Route::get('alumnos/{id}/edit', ['as' => 'alumnos/edit', 'uses' => 'AlumnosContr
 Route::put('alumnos/update', ['as' => 'alumnos/update', 'uses' => 'AlumnosController@update']);
 Route::post('alumnos/store', 'AlumnosController@store');
 Route::post('alumnos/search', ['as' => 'alumnos/search', 'uses' => 'AlumnosController@search']);
+Route::get('alumnos/{id}', ['as' => 'alumnos/show', 'uses' => 'AlumnosController@show']);
 
 /*Rutas de MateriasCarrerasController*/
 Route::resource('/materias_carreras', 'MateriasCarrerasController');

@@ -60,6 +60,7 @@ class AlumnosController extends Controller
         $alumnos->apellidos_alumno = $request->apellidos_alumno;
         $alumnos->carreras_id = $request->carreras_id;
         $alumnos->estatus_id = $request->estatus_id;
+        $alumnos->updated_user_id = Auth::User()->id;
         $alumnos->save();
         return redirect('/alumnos')->with('message', 'edit');
     }

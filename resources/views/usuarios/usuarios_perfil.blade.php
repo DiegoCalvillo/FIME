@@ -73,7 +73,11 @@
 								</tr>
 								<tr>
 									<th>Ulitmo inicio de Sesión</th>
-									<td>{{ $last_login->toFormattedDateString() }}</td>
+									@if($users->last_login == null)
+										<td>Sin información</td>
+									@else
+										<td>{{ $last_login->toFormattedDateString() }}</td>
+									@endif
 								</tr>
 								@endif
 							</tbody>
